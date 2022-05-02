@@ -1,12 +1,7 @@
- import 'dart:convert' as convert;
-
+import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
- 
- class Nada{
-    
-  }
 
-void ExampleHttpPack(server, endpoint) async {
+void exampleHttpRead(server, endpoint) async {
   // This example uses the Google Books API to search for books about http.
   // https://developers.google.com/books/docs/overview
   var url =
@@ -26,13 +21,25 @@ void ExampleHttpPack(server, endpoint) async {
   }
 }
 
+void exampleHttpSend(endpoint, data) async{
+    var url = Uri.parse(endpoint);
+    var response = await http.post(url, body: data);
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
 
-class Heranca extends Nada{
-  String server;
-  String endpoint;
-
-  Heranca(this.server, this.endpoint){
-    ExampleHttpPack(this.server, this.endpoint);
-    print("Heranca sendo chamada");
   }
+
+
+class easyAPI {
+
+  readAPI(server, endpoint){
+    var result = exampleHttpRead(server, endpoint);
+    return result;
+  }
+
+  sendAPI(endpoint, data){
+    exampleHttpSend(endpoint, data);
+    //print("endPoint: {$endpoint} / data: {$data}");
+  }
+  
 }

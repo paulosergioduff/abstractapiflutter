@@ -59,7 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
-      Heranca('www.googleapis.com', '/books/v1/volumes');
+      //easyAPI().readAPI('www.googleapis.com', '/books/v1/volumes');
+      Map<String, String> dados = {'name': 'finalmente?', 'color': 'blue'}; 
+      //String dados = "{'name': 'secundo dado', 'color': 'blue'}"; 
+      easyAPI().sendAPI('https://x8ki-letl-twmt.n7.xano.io/api:U0Y2rJ2c/easyapi', dados);
     });
   }
 
